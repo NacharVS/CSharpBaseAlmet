@@ -1,25 +1,50 @@
 ﻿Console.WriteLine("Start");
-int x = int.Parse(Console.ReadLine());
-int[] numbers = new int[x]; //length = 10 maxIndex = length - 1;
-int max = 0;
-int index = 0;
+//int x = int.Parse(Console.ReadLine());
+int[] arrayOne = new int[12]; //length = 10 maxIndex = length - 1;
+int[] arrayTwo = new int[6];
 Random random = new Random();
 
-for (int i = 0; i < numbers.Length; i++)
+for (int i = 0; i < arrayOne.Length; i++)
 {
-    numbers[i] = random.Next(10, 100);
-    Console.Write(numbers[i] + " ");
+    arrayOne[i] = random.Next(10, 100);
+    Console.Write(arrayOne[i] + " ");
 }
-
-for (int i = 0; i < numbers.Length; i++)
+Console.WriteLine();
+for (int i = 0; i < arrayTwo.Length; i++)
 {
-    if (numbers[i] > max)
+    arrayTwo[i] = random.Next(10, 100);
+    Console.Write(arrayTwo[i] + " ");
+}
+Console.WriteLine();
+
+if(arrayOne.Length > arrayTwo.Length)
+{
+    for (int i = 0; i < arrayTwo.Length; i++)
     {
-        max = numbers[i];
-        index = i;
+        arrayOne[i] = arrayOne[i] + arrayTwo[i];
+    }
+    foreach (var item in arrayOne)
+    {
+        Console.Write(item + " ");
     }
 }
-Console.WriteLine($"max - {max}, index of max - {index}");
+else
+{
+    for (int i = 0; i < arrayOne.Length; i++)
+    {
+        arrayTwo[i] = arrayOne[i] + arrayTwo[i];       
+    }
+    foreach (var item in arrayTwo)
+    {
+        Console.Write(item + " ");
+    }
+}
+
+
+
+
+
+
 
 
 
