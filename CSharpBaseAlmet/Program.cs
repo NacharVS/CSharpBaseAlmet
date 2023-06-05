@@ -1,28 +1,21 @@
 ﻿Console.WriteLine("Start");
+int x = int.Parse(Console.ReadLine());
+int[] numbers = new int[x]; //length = 10 maxIndex = length - 1;
 
-int a = int.Parse(Console.ReadLine());
-int b = int.Parse(Console.ReadLine());
+Random random = new Random();
 
-if(a < b)
+for (int i = 0; i < numbers.Length; i++)
 {
-    for (int i = a; i <= b; i++)
-    {
-        if (i % 7 == 0)
-        {
-            Console.WriteLine(i);
-        }
-    }
+    numbers[i] = random.Next(10, 100);
 }
-else
+
+Console.WriteLine("Generation complete");
+
+for (int i = 0; i < numbers.Length; i++)
 {
-    for (int i = a; i >= b; i--)
-    {
-        if (i % 7 == 0)
-        {
-            Console.WriteLine(i);
-        }
-    }
+    Console.Write($"{numbers[i]} ");
 }
+
 
 // 0 1 1 2 3 5 8 13 21 34 ....
 Console.WriteLine();
