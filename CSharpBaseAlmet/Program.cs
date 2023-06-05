@@ -1,34 +1,14 @@
 ﻿Console.WriteLine("Start");
 
 int a = int.Parse(Console.ReadLine());
+int b = int.Parse(Console.ReadLine());
+long res = 1;
 
-int sot = 0;
-int des = 0;
-int ed = 0;
-
-
-if (a > 99 && a < 1000)
+for (int i = 0; i < b; i++)
 {
-
-    ed = a % 10;
-    sot = a / 100;
-    des = a % 100 / 10;
-
-    if (a % 2 == 0)
-    {
-        Console.WriteLine($"Число четное. Сумма - {ed + sot + des} пам-пам");
-    }
-    else
-    {
-        Console.WriteLine($"Число нечетное. Произведение - {ed * sot * des} пам-пам");
-    }
-}
-else
-{
-    Console.WriteLine("Number incorrect");
+    res = res * a;
 }
 
-
-
+Console.WriteLine(res);
 Console.WriteLine("End");
 
