@@ -6,14 +6,16 @@ Random random = new Random();
 
 for (int i = 0; i < numbers.Length; i++)
 {
-    numbers[i] = random.Next(10, 100);
+    numbers[i] = random.Next(-5, 5);
 }
 
 Console.WriteLine("Generation complete");
 
-for (int i = 0; i < numbers.Length; i++)
+foreach (int item in numbers)
 {
-    Console.Write($"{numbers[i]} ");
+    if (item == 0)
+        break;
+    Console.WriteLine(item);
 }
 
 
