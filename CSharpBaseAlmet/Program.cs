@@ -2,13 +2,29 @@
 
 int a = int.Parse(Console.ReadLine());
 int b = int.Parse(Console.ReadLine());
-long res = 1;
 
-for (int i = 0; i < b; i++)
+if(a < b)
 {
-    res = res * a;
+    for (int i = a; i <= b; i++)
+    {
+        if (i % 7 == 0)
+        {
+            Console.WriteLine(i);
+        }
+    }
+}
+else
+{
+    for (int i = a; i >= b; i--)
+    {
+        if (i % 7 == 0)
+        {
+            Console.WriteLine(i);
+        }
+    }
 }
 
-Console.WriteLine(res);
+// 0 1 1 2 3 5 8 13 21 34 ....
+Console.WriteLine();
 Console.WriteLine("End");
 
