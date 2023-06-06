@@ -21,6 +21,12 @@ namespace CSharpBaseAlmet
         public void WeaponAttack(Unit unit)
         {
             unit.Health -= CurrentWeapon.Damage;
+            
+        }
+
+        public override void Move()
+        {
+            Console.WriteLine("Warrior going to the barracs");
         }
     }
 }

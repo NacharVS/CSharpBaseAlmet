@@ -49,7 +49,7 @@
             Console.WriteLine($"Type - {Type} Health - {Health} Speed - {Speed}");
         }
 
-        public void Move()
+        public virtual void Move()
         {
             Console.WriteLine($"{Type} is moving to...");
         }

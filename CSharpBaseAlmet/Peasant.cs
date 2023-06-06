@@ -20,5 +20,10 @@ namespace CSharpBaseAlmet
         {
             Console.WriteLine("Working");
         }
+
+        public override void Move()
+        {
+            Console.WriteLine("Peasant is going to the farm");
+        }
     }
 }
