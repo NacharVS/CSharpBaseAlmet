@@ -1,26 +1,21 @@
 ﻿Console.WriteLine("Start");
+string name =  Console.ReadLine();
+List<string> list = new List<string>();
 
-int[,] array = new int[5,5];
-int max = 0;
-Random random = new Random();
+list.Add("Ivan");
+list.Add("Andrey");
+list.Add("Victor");
+list.Add("Ruslan");
+list.Add("Timur");
+list.Add("wqewrqwer");
+list.Add("qwerwqdfasdf");
+list.Add("ad");
+list.Add("Trfewer");
 
-for (int i = 0; i < array.GetLength(0); i++)
+foreach (string item in list)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        array[i, j] = random.Next(10, 99);
-        Console.Write($"{array[i, j]} ");
-
-        if(array[i, j] > max)
-        {
-            max = array[i, j];
-        }
-    }
-    Console.Write($"Max in {i+1} : {max}");
-    max = 0;
-    Console.WriteLine();
-}
-
+    
+}  
 
 
 
