@@ -25,15 +25,18 @@ namespace CSharpBaseAlmet
             {
                 while(unit.Health < unit.MaxHealth)
                 {
-                    if(unit.Health + 2 > unit.MaxHealth)
-                    {
-                        unit.Health = unit.MaxHealth;
-                    }
-                    else
-                    {
-                        unit.Health += 2;
-                        HealingResource--;
-                    }
+                    //if(unit.Health + 2 > unit.MaxHealth)
+                    //{
+                    //    unit.Health = unit.MaxHealth;
+                    //}
+                    //else
+                    //{
+                    //    unit.Health += 2;
+                    //    HealingResource--;
+                    //}
+
+                    unit.Health += 2;
+                    HealingResource--;
                 }
             }
             else

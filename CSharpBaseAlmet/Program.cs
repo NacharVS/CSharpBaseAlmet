@@ -1,14 +1,18 @@
 ﻿using CSharpBaseAlmet;
+using CSharpBaseAlmet.Weapons;
 
-Footman soldier1 = new Footman("Warrior", 60, 11, 11, 2);
-Footman soldier2 = new Footman("Warrior", 60, 11, 10, 2);
 Peasant peasant = new Peasant();
+IronSword sword = new IronSword();
+Footman soldier1 = new Footman("Warrior", 60, 11, 11, 2, sword);
+Footman soldier2 = new Footman("Warrior", 60, 11, 10, 2);
+
 Archer archer = new Archer("Ranger", 40, 12, 15, 1);
 Healer healer = new Healer();
 
-soldier1.InflictDamage(peasant);
-healer.HealSomebody(peasant);
-healer.ShowReource();
+soldier1.WeaponAttack(peasant);
+
+
+
 peasant.ShowBaseInfo();
 
 
