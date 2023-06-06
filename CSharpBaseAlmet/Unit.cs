@@ -6,6 +6,7 @@
         {
             Type = type;
             Health = health;
+            MaxHealth = health;
             Speed = speed;
             Level = 1;
         }
@@ -13,6 +14,7 @@
         public int Level { get; set; }
         public string Type { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; set; }
         public int Speed { get; set; }
 
         public void ShowBaseInfo()
