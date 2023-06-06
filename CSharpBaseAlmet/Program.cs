@@ -1,22 +1,34 @@
-﻿Console.WriteLine("Start");
-string name =  Console.ReadLine();
-List<string> list = new List<string>();
+﻿GetBinaryArray();
 
-list.Add("Ivan");
-list.Add("Andrey");
-list.Add("Victor");
-list.Add("Ruslan");
-list.Add("Timur");
-list.Add("wqewrqwer");
-list.Add("qwerwqdfasdf");
-list.Add("ad");
-list.Add("Trfewer");
 
-foreach (string item in list)
+
+
+
+static void ShowBinaryArray()
+{   
+    int[,] array = new int[5, 5];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0,2);
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+static int[,] GetBinaryArray()
 {
-    
-}  
-
-
+    int[,] array = new int[5, 5];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 2);            
+        }
+    }
+    return array;
+}
 
 
