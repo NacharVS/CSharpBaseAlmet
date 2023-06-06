@@ -2,42 +2,29 @@
 {
     class Unit
     {
-        public Unit(string type, int health, int speed, int defense)
+        public Unit(string type, int health, int speed)
         {
             Type = type;
             Health = health;
             Speed = speed;
-            Defense = defense;
+            Level = 1;
         }
 
+        public int Level { get; set; }
         public string Type { get; set; }
         public int Health { get; set; }
         public int Speed { get; set; }
-        public int Defense { get; set; }
 
-        public void ShowInfo()
+        public void ShowBaseInfo()
         {
-            Console.WriteLine($"Type - {Type} Health - {Health}");
+            Console.WriteLine($"Type - {Type} Health - {Health} Speed - {Speed}");
         }
 
-        public static void CreateUnit()
+        public void Move()
         {
-            Console.WriteLine("Unit has created");
+            Console.WriteLine($"{Type} is moving to...");
         }
 
-        public void GetDamage(int damage)
-        {
-            Console.WriteLine($"{Type} got {damage} of damage;");
-            if (Health <= damage)
-            {
-                Console.WriteLine("Destroyed");
-                Health = 0;
-            }
-            else
-            {
-                Health -= damage;
-            }            
-        }
 
     }
 }
