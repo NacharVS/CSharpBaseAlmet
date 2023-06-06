@@ -1,72 +1,30 @@
-﻿
+﻿using CSharpBaseAlmet;
 
+List<Unit> unitList = new List<Unit>();
+Random random = new Random();
+Unit unitBuffer;
 
-
-
-static void ShowBinaryArray()
-{   
-    int[,] array = new int[5, 5];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(0,2);
-            Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-}
-
-static int[,] GetBinaryArray()
+for (int i = 0; i < 10; i++)
 {
-    int[,] array = new int[5, 5];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(0, 2);            
-        }
-    }
-    return array;
+    unitBuffer = new Unit("Worker", random.Next(30, 91), 
+        random.Next(9, 19), random.Next(0, 8));
+    unitList.Add(unitBuffer);
 }
 
-static void ShowCustomArray(string name, int rows, int cols, int min, int max)
+foreach (var item in unitList)
 {
-    int[,] array = new int[rows, cols];
-    Console.WriteLine($"Array '{name}' ");
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(min, max);
-            Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-}
-static void ArrayGenegation(int[] numbers, int min, int max)
-{
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = new Random().Next(min, max);
-        Console.Write(numbers[i] + " ");
-    }
+    Console.WriteLine($"{item.Type} - {item.Health} - {item.Speed} - {item.Defense}");
 }
 
-static void Summ(params double[] ints)
-{
-    int sum = 0;
-    foreach (int i in ints)
-    {
-        sum += i;
-    }
-    Console.WriteLine(sum);
-}
 
-static void ShowInConsole(string s)
-{
-    Console.WriteLine(s);
-}
+
+
+
+
+
+
+
+
 
 
 
