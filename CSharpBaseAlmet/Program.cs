@@ -1,42 +1,27 @@
 ﻿Console.WriteLine("Start");
 
-int[] arrayOne = new int[12];
-
-int buffer = 0;
-int checks = 0;
+int[,] array = new int[5,5];
+int max = 0;
 Random random = new Random();
 
-for (int i = 0; i < arrayOne.Length; i++)
+for (int i = 0; i < array.GetLength(0); i++)
 {
-    arrayOne[i] = random.Next(10, 100);
-    Console.Write(arrayOne[i] + " ");
-}
-Console.WriteLine();
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        array[i, j] = random.Next(10, 99);
+        Console.Write($"{array[i, j]} ");
 
-for (int i = 0; i < arrayOne.Length; i++)
-{
-    for (int j = 0; j < arrayOne.Length - 1 - i; j++)
-    {
-        if(arrayOne[j] > arrayOne[j + 1])
+        if(array[i, j] > max)
         {
-            buffer = arrayOne[j];
-            arrayOne[j] = arrayOne[j + 1];
-            arrayOne[j + 1] = buffer;
+            max = array[i, j];
         }
-        checks++;
     }
+    Console.Write($"Max in {i+1} : {max}");
+    max = 0;
     Console.WriteLine();
-    foreach (var item in arrayOne)
-    {
-        Console.Write(" " + item);
-    }
 }
-Console.WriteLine();
-Console.WriteLine("Sorted:");
-foreach (var item in arrayOne)
-{
-    Console.Write(" " + item);
-}
-Console.WriteLine();
-Console.WriteLine(checks);
+
+
+
+
 
