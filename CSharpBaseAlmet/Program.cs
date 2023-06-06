@@ -15,6 +15,14 @@ foreach (var item in unitList)
 {
     Console.WriteLine($"{item.Type} - {item.Health} - {item.Speed} - {item.Defense}");
 }
+Console.WriteLine();
+foreach (var item in unitList)
+{
+    if(item.Health > 60 && item.Speed > 12)
+    {
+        Console.WriteLine($"{item.Type} - {item.Health} - {item.Speed} - {item.Defense}");
+    }
+}
 
 
 
