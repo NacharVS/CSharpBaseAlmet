@@ -25,5 +25,10 @@ namespace CSharpBaseAlmet.Weapons
             }
             set => _damage = value; 
         }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine($"durability - {Durability}");
+        }
     }
 }
