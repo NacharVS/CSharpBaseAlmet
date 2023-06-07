@@ -1,4 +1,5 @@
 ﻿using CSharpBaseAlmet;
+using CSharpBaseAlmet.Buildings;
 using CSharpBaseAlmet.Weapons;
 
 void Method1(int pHealth)
@@ -73,17 +74,21 @@ void Method3()
 //soldier2.ShowBaseInfo();
 
 
-IRangeWeapon weapon1 = new Cannon();
-IRangeWeapon weapon2 = new Bow();
+//IRangeWeapon weapon1 = new Cannon();
+//IRangeWeapon weapon2 = new Bow();
 
-weapon1.Shoot();
-weapon1.ShowInfo();
-weapon2.Shoot();
-weapon2.ShowInfo();
-weapon1.Shoot();
-weapon1.ShowInfo();
-weapon2.Shoot();
-weapon2.ShowInfo();
+//weapon1.Shoot();
+//weapon1.ShowInfo();
+//weapon2.Shoot();
+//weapon2.ShowInfo();
+//weapon1.Shoot();
+//weapon1.ShowInfo();
+//weapon2.Shoot();
+//weapon2.ShowInfo();
+
+IBarrack building1 = new Barrack();
+
+building1.ShowInfo();
 
 
 
