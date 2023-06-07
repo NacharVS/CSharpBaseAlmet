@@ -2,6 +2,9 @@
 {
     class Unit
     {
+        public Action moving;
+        public delegate void HealthChangedDelegate();
+ 
         private int _health;
         public Unit(string type, int health, int speed)
         {
@@ -43,7 +46,7 @@
                         _health = value;
                     }
                 }
-                
+                healthChangedEvent?.Invoke();
             }
         }
 
@@ -52,9 +55,9 @@
             Console.WriteLine($"Type - {Type} Health - {Health} Speed - {Speed}");
         }
 
-        public virtual void Move()
+        public void Move()
         {
-            Console.WriteLine($"{Type} is moving to...");
+            moving.Invoke();
         }
 
         public void GetDamageAndEffect((int,bool,string)damageEffect)
@@ -76,6 +79,6 @@
 
         }
 
-
+        public event HealthChangedDelegate healthChangedEvent;
     }
 }

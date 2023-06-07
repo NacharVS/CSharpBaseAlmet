@@ -10,6 +10,9 @@ namespace CSharpBaseAlmet
     internal class Footman : BattleUnit
     {
         public Weapon CurrentWeapon { get; set; }
+        public Footman() : base("warrior", 60, 9, 2, 2)
+        {
+        }
         public Footman(string type, int health, int speed, int damage, int defense) : base(type, health, speed, damage, defense)
         {
         }
@@ -32,9 +35,9 @@ namespace CSharpBaseAlmet
 
 
 
-        public override void Move()
-        {
-            Console.WriteLine("Warrior going to the barracs");
-        }
+        //public override void Move()
+        //{
+        //    Console.WriteLine("Warrior going to the barracs");
+        //}
     }
 }

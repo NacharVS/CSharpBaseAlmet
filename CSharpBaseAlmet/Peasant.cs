@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CSharpBaseAlmet
 {
     internal class Peasant : Unit
-    {
+    {        
         public Peasant(string type, int health, int speed) : base(type, health, speed)
         {
         }
@@ -21,9 +21,9 @@ namespace CSharpBaseAlmet
             Console.WriteLine("Working");
         }
 
-        public override void Move()
-        {
-            Console.WriteLine("Peasant is going to the farm");
-        }
+        //public override void Move()
+        //{
+            
+        //}
     }
 }
