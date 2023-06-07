@@ -20,7 +20,27 @@ namespace CSharpBaseAlmet
 
         public void WeaponAttack(Unit unit)
         {
-            unit.Health -= CurrentWeapon.Damage;
+            if (IsStunned)
+            {
+                Console.WriteLine("Can not attack. Stun.");
+            }
+            else
+            {
+                if (CurrentWeapon.GetType().Name == "BronzeMace")
+                {
+                    unit.Health -= CurrentWeapon.Damage;
+                    Console.WriteLine(CurrentWeapon.Damage);
+                    if (new Random().Next(0, 101) <= 20)
+                    {
+                        unit.IsStunned = true;
+                        Console.WriteLine($"{unit.Type} stun!");
+                    }
+                }
+                else
+                {
+                    unit.Health -= CurrentWeapon.Damage;
+                }
+            }
             
         }
 
