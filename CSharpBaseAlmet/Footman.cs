@@ -12,6 +12,13 @@ namespace CSharpBaseAlmet
         public Weapon CurrentWeapon { get; set; }
         public Footman() : base("warrior", 60, 9, 2, 2)
         {
+
+
+        }
+
+        public Footman(Weapon weapon) : base("warrior", 60, 9, 2, 2)
+        {
+            CurrentWeapon = weapon;
         }
         public Footman(string type, int health, int speed, int damage, int defense) : base(type, health, speed, damage, defense)
         {

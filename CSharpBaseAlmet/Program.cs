@@ -1,9 +1,9 @@
 ﻿using CSharpBaseAlmet;
 using CSharpBaseAlmet.Weapons;
 
-void Method1()
+void Method1(int currentHealth)
 {
-    Console.WriteLine("SimpleMove");
+    Console.WriteLine($"Current health - {currentHealth}");
 }
 void Method2()
 {
@@ -13,17 +13,18 @@ void Method3()
 {
     Console.WriteLine("Move");
 }
+
 void Method4()
 {
-    Console.WriteLine("Durability");
+    Console.WriteLine("Durability has changed");
 }
-
+BronzeMace mace = new BronzeMace();
 Peasant peasant = new Peasant();
-Footman footman = new Footman();
+Footman footman = new Footman(mace);
+footman.CurrentWeapon.DurabilityChangedEvent += Method4;
 peasant.healthChangedEvent += Method1;
-peasant.healthChangedEvent += Method2;
-peasant.healthChangedEvent += Method3;
-peasant.durabilityChangedEvent += Method4;
+
+footman.InflictDamage(peasant);
 footman.InflictDamage(peasant);
 
 

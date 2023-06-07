@@ -1,12 +1,9 @@
 ﻿namespace CSharpBaseAlmet
 {
     class Unit
-    {
-        public Action moving;
-        public delegate void HealthChangedDelegate();
-        public delegate void DurabilityChangedDelegate();
-
-
+    {   
+        public delegate void HealthChangedDelegate(int health);
+ 
         private int _health;
         public Unit(string type, int health, int speed)
         {
@@ -48,8 +45,7 @@
                         _health = value;
                     }
                 }
-                healthChangedEvent?.Invoke();
-                durabilityChangedEvent?.Invoke();
+                healthChangedEvent?.Invoke(_health);
             }
         }
 
@@ -60,7 +56,7 @@
 
         public void Move()
         {
-            moving.Invoke();
+
         }
 
         public void GetDamageAndEffect((int,bool,string)damageEffect)
@@ -83,7 +79,5 @@
         }
 
         public event HealthChangedDelegate healthChangedEvent;
-
-        public event DurabilityChangedDelegate durabilityChangedEvent;
     }
 }
