@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpBaseAlmet.Weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,11 @@ namespace CSharpBaseAlmet
             Damage = damage;
             Defense = defense;
         }
-
+        public Weapon CurrentWeapon { get; set; }
         public int Damage { get; set; }
         public int Defense { get; set; }
 
-        public void InflictDamage(Unit anyUnit)
+        public virtual void InflictDamage(Unit anyUnit)
         {
             anyUnit.Health -= Damage;
             Console.WriteLine($"{Type} inflicted {Damage} to enemy " +

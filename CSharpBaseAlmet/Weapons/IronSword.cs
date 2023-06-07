@@ -32,5 +32,10 @@ namespace CSharpBaseAlmet.Weapons
             }
             set => base.Damage = value; 
         }
+        public override (int, bool, string) Hit()
+        {
+                return (Damage, false, "IronSword");
+        }
+
     }
 }

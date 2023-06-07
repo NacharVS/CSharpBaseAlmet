@@ -18,8 +18,8 @@
         public int MaxHealth { get; set; }
         public int Speed { get; set; }
 
-        public bool IsStunned { get; set; } = false;
-        public bool IsBleending { get; set; } = false;
+        public  bool IsStunned { get; set; }
+        public bool IsBleeding { get; set; }
         public int Health 
         {   get
             {
@@ -55,6 +55,25 @@
         public virtual void Move()
         {
             Console.WriteLine($"{Type} is moving to...");
+        }
+
+        public void GetDamageAndEffect((int,bool,string)damageEffect)
+        {
+            if(damageEffect.Item3 == "BronzeMace")
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsStunned = damageEffect.Item2;
+                return;
+            }
+            if(damageEffect.Item3 == "StoneAxe")
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsBleeding = damageEffect.Item2;
+                return;
+            }
+
         }
 
 
