@@ -18,19 +18,19 @@ namespace CSharpBaseAlmet
             CurrentWeapon = weapon;
         }
 
-        public void WeaponAttack(Unit unit)
+        public override void InflictDamage(Unit anyUnit)
         {
-            if (CurrentWeapon.GetType().Name == "BronzeMace")
+            if(CurrentWeapon != null)
             {
-                unit.GetDamageAndEffect(CurrentWeapon.Hit().Item1, CurrentWeapon.Hit().Item2);
+                anyUnit.GetDamageAndEffect(CurrentWeapon.Hit());
             }
             else
             {
-                unit.GetDamageAndEffect(CurrentWeapon.Hit().Item1, CurrentWeapon.Hit().Item2);
+                base.InflictDamage(anyUnit);
             }
         }
-            
-        
+
+
 
         public override void Move()
         {

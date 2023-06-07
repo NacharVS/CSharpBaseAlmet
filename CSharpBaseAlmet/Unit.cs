@@ -19,6 +19,7 @@
         public int Speed { get; set; }
 
         public  bool IsStunned { get; set; }
+        public bool IsBleeding { get; set; }
         public int Health 
         {   get
             {
@@ -56,11 +57,23 @@
             Console.WriteLine($"{Type} is moving to...");
         }
 
-        public void GetDamageAndEffect(int damage, bool effect)
+        public void GetDamageAndEffect((int,bool,string)damageEffect)
         {
-            Health -= damage;
-            Console.WriteLine(damage);
-            IsStunned = effect;
+            if(damageEffect.Item3 == "BronzeMace")
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsStunned = damageEffect.Item2;
+                return;
+            }
+            if(damageEffect.Item3 == "StoneAxe")
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsBleeding = damageEffect.Item2;
+                return;
+            }
+
         }
 
 

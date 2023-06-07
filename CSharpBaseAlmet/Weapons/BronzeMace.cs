@@ -12,16 +12,16 @@ namespace CSharpBaseAlmet.Weapons
         {
         }
 
-        public override (int, bool) Hit()
+        public override (int, bool, string) Hit()
         {
             if (new Random().Next(1, 101) < 20)
             {
                 Console.WriteLine("Stun!");
-                return (Damage, true);
+                return (Damage, true, "BronzeMace");
             }
             else
             {
-                return (Damage, false);
+                return (Damage, true, "BronzeMace");
             }
         }
     }
