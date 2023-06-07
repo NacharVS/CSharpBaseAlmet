@@ -4,8 +4,8 @@ using CSharpBaseAlmet.Weapons;
 Peasant peasant = new Peasant();
 IronSword sword = new IronSword();
 BronzeMace mace = new BronzeMace();
-Footman soldier1 = new Footman("Warrior", 60, 11, 11, 2, mace);
-Footman soldier2 = new Footman("Warrior", 60, 11, 10, 2, mace);
+Footman soldier1 = new Footman("Warrior", 60, 11, 11, 2, sword);
+Footman soldier2 = new Footman("Warrior", 60, 11, 10, 2, sword);
 
 Archer archer = new Archer("Ranger", 40, 12, 15, 1);
 Healer healer = new Healer();

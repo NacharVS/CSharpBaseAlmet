@@ -56,6 +56,13 @@
             Console.WriteLine($"{Type} is moving to...");
         }
 
+        public void GetDamageAndEffect(int damage, bool effect)
+        {
+            Health -= damage;
+            Console.WriteLine(damage);
+            IsStunned = effect;
+        }
+
 
     }
 }

@@ -20,29 +20,17 @@ namespace CSharpBaseAlmet
 
         public void WeaponAttack(Unit unit)
         {
-            if (IsStunned)
+            if (CurrentWeapon.GetType().Name == "BronzeMace")
             {
-                Console.WriteLine("Can not attack. Stun.");
+                unit.GetDamageAndEffect(CurrentWeapon.Hit().Item1, CurrentWeapon.Hit().Item2);
             }
             else
             {
-                if (CurrentWeapon.GetType().Name == "BronzeMace")
-                {
-                    unit.Health -= CurrentWeapon.Damage;
-                    Console.WriteLine(CurrentWeapon.Damage);
-                    if (new Random().Next(0, 101) <= 20)
-                    {
-                        unit.IsStunned = true;
-                        Console.WriteLine($"{unit.Type} stun!");
-                    }
-                }
-                else
-                {
-                    unit.Health -= CurrentWeapon.Damage;
-                }
+                unit.GetDamageAndEffect(CurrentWeapon.Hit().Item1, CurrentWeapon.Hit().Item2);
             }
-            
         }
+            
+        
 
         public override void Move()
         {
