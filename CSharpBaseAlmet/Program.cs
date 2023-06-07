@@ -1,38 +1,62 @@
 ﻿using CSharpBaseAlmet;
+using CSharpBaseAlmet.Tower;
 using CSharpBaseAlmet.Weapons;
 
-Peasant peasant = new Peasant();
-IronSword sword = new IronSword();
-BronzeMace mace = new BronzeMace();
-StoneAxe axe = new StoneAxe();
-Footman soldier1 = new Footman("Warrior", 60, 11, 11, 2, mace);
-Footman soldier2 = new Footman("Warrior", 60, 11, 10, 2, axe);
-Blacksmith blacksmith = new Blacksmith("Blacksmith", 40, 5);
+//IRangeWeapon weapon1 = new Cannon();
+//IRangeWeapon weapon2 = new Bow();
 
 
-Archer archer = new Archer("Ranger", 40, 12, 15, 1);
-Healer healer = new Healer();
+//weapon1.Shoot();
+//weapon1.ShowInfo();
+//weapon2.Shoot();
+//weapon2.ShowInfo();
+//weapon1.Shoot();
+//weapon1.ShowInfo();
+//weapon2.Shoot();
+//weapon2.ShowInfo();
 
-void MethodDurability(int durability) 
-{
-    Console.WriteLine($"Durability is changed. Current durability - {durability}");
-}
-void MethodHealth(int currentHealth) 
-{
-    Console.WriteLine($"Peasant current health - {currentHealth}");
-}
+IWatchingTower tower = new WatchingTower();
+tower.ShowInfo();
 
-Footman footman = new Footman("Warrior", 60, 11, 10, 2, axe);
-footman.CurrentWeapon.durabilityityChangedEvent += MethodDurability;
-peasant.healthChangedDelegate+= MethodHealth;
+IBarracks barracks= new Barracks();
+barracks.ShowInfo();
+barracks.AddGarrison("Player 4");
+barracks.ShowInfo();
 
-soldier1.InflictDamage(peasant);
-soldier2.InflictDamage(soldier1);
-soldier2.InflictDamage(soldier1);
-soldier1.InflictDamage(soldier2);
-soldier2.InflictDamage(soldier1);
-soldier2.InflictDamage(soldier1);
-soldier1.ShowBaseInfo();
+
+
+//Peasant peasant = new Peasant();
+//IronSword sword = new IronSword();
+//BronzeMace mace = new BronzeMace();
+//StoneAxe axe = new StoneAxe();
+//Footman soldier1 = new Footman("Warrior", 60, 11, 11, 2, mace);
+//Footman soldier2 = new Footman("Warrior", 60, 11, 10, 2, axe);
+//Blacksmith blacksmith = new Blacksmith("Blacksmith", 40, 5);
+
+
+//Archer archer = new Archer("Ranger", 40, 12, 15, 1);
+//Healer healer = new Healer();
+
+//void MethodDurability(int durability) 
+//{
+//    Console.WriteLine($"Durability is changed. Current durability - {durability}");
+//}
+//void MethodHealth(int currentHealth) 
+//{
+//    Console.WriteLine($"Peasant current health - {currentHealth}");
+//}
+
+//Footman footman = new Footman("Warrior", 60, 11, 10, 2, axe);
+//footman.CurrentWeapon.durabilityityChangedEvent += MethodDurability;
+//peasant.healthChangedDelegate+= MethodHealth;
+
+//soldier1.InflictDamage(peasant);
+//soldier2.InflictDamage(soldier1);
+//soldier2.InflictDamage(soldier1);
+//soldier1.InflictDamage(soldier2);
+//soldier2.InflictDamage(soldier1);
+//soldier2.InflictDamage(soldier1);
+//soldier1.ShowBaseInfo();
 
 
 
