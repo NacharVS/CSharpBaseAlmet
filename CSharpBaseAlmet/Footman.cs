@@ -10,6 +10,9 @@ namespace CSharpBaseAlmet
     internal class Footman : BattleUnit
     {
         public Weapon CurrentWeapon { get; set; }
+        public Footman() : base("warrior", 60, 9, 2, 2)
+        {
+        }
         public Footman(string type, int health, int speed, int damage, int defense) : base(type, health, speed, damage, defense)
         {
         }
@@ -18,41 +21,23 @@ namespace CSharpBaseAlmet
             CurrentWeapon = weapon;
         }
 
-        public void WeaponAttack(Unit unit)
+        public override void InflictDamage(Unit anyUnit)
         {
-            if (IsStunned)
+            if(CurrentWeapon != null)
             {
-                Console.WriteLine($"{unit.Type} can not attack. Stun.");
+                anyUnit.GetDamageAndEffect(CurrentWeapon.Hit());
             }
             else
             {
-                if (CurrentWeapon.GetType().Name == "BronzeMace")
-                {
-                    unit.Health -= CurrentWeapon.Damage;
-                    Console.WriteLine(CurrentWeapon.Damage);
-                    if (new Random().Next(0, 101) <= 20)
-                    {
-                        unit.IsStunned = true;
-                        Console.WriteLine($"{unit.Type} stun!");
-                    }
-                    if (new Random().Next(0, 101) <= 20)
-                    {
-                        unit.OpenWounds = true;
-                        unit.Health -= 2;
-                        Console.WriteLine($"{unit.Type} open wounds! Health - {unit.Health}");
-                    }
-                }
-                else
-                {
-                    unit.Health -= CurrentWeapon.Damage;
-                }
+                base.InflictDamage(anyUnit);
             }
-            
         }
 
-        public override void Move()
-        {
-            Console.WriteLine("Warrior going to the barracs");
-        }
+
+
+        //public override void Move()
+        //{
+        //    Console.WriteLine("Warrior going to the barracs");
+        //}
     }
 }

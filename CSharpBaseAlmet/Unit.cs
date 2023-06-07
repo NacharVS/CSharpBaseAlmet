@@ -2,6 +2,9 @@
 {
     class Unit
     {
+        public Action moving;
+        public delegate void HealthChangedDelegate();
+ 
         private int _health;
         public Unit(string type, int health, int speed)
         {
@@ -18,9 +21,8 @@
         public int MaxHealth { get; set; }
         public int Speed { get; set; }
 
-        public bool IsStunned { get; set; }
-        public bool OpenWounds { get; set; }
-
+        public  bool IsStunned { get; set; }
+        public bool IsBleeding { get; set; }
         public int Health 
         {   get
             {
@@ -44,7 +46,7 @@
                         _health = value;
                     }
                 }
-                
+                healthChangedEvent?.Invoke();
             }
         }
 
@@ -53,11 +55,30 @@
             Console.WriteLine($"Type - {Type} Health - {Health} Speed - {Speed}");
         }
 
-        public virtual void Move()
+        public void Move()
         {
-            Console.WriteLine($"{Type} is moving to...");
+            moving.Invoke();
         }
 
+        public void GetDamageAndEffect((int,bool,string)damageEffect)
+        {
+            if(damageEffect.Item3 == "BronzeMace")
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsStunned = damageEffect.Item2;
+                return;
+            }
+            if(damageEffect.Item3 == "StoneAxe")
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsBleeding = damageEffect.Item2;
+                return;
+            }
 
+        }
+
+        public event HealthChangedDelegate healthChangedEvent;
     }
 }
