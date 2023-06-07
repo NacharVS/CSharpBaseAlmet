@@ -18,6 +18,17 @@ namespace CSharpBaseAlmet
             CurrentWeapon = weapon;
         }
 
+        public override void InflictDamage(Unit anyUnit)
+        {
+            if (CurrentWeapon != null)
+            {
+                anyUnit.GetDamageAndEffect(CurrentWeapon.Hit());
+            }
+            else
+            {
+                base.InflictDamage(anyUnit);
+            }
+        }
         public void WeaponAttack(Unit unit)
         {
             if (IsStunned)
@@ -29,13 +40,9 @@ namespace CSharpBaseAlmet
 
                 if (CurrentWeapon.GetType().Name == "BronzeMace")
                 {
-                    unit.Health -= CurrentWeapon.Damage;
+                    unit.Health -= CurrentWeapon.Hit().Item1;
                     Console.WriteLine(CurrentWeapon.Damage);
-                    if (new Random().Next(0, 101) <= 20)
-                    {
-                        unit.IsStunned = true;
-                        Console.WriteLine($"{unit.Type} stun!");
-                    }
+                    unit.IsStunned = CurrentWeapon.Hit().Item2;
                 }
                 else if (CurrentWeapon.GetType().Name == "StoneAxe")
                 {
