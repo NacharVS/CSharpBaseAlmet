@@ -15,6 +15,8 @@ soldier1.WeaponAttack(soldier2);
 
 soldier2.ShowBaseInfo();
 
+Console.ReadLine();
+
 
 
 

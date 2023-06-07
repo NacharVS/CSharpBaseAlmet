@@ -20,8 +20,35 @@ namespace CSharpBaseAlmet
 
         public void WeaponAttack(Unit unit)
         {
+            if (IsStunned)
+            {
+                Console.WriteLine("Can not attack. Stun.");
+                return;
+            }
+            if(unit.IsBleending)
+            {
+                Console.WriteLine($"{unit.Type} bleeding effect!");
+                unit.Health -= 5;
+            }
+            if (CurrentWeapon.GetType().Name == "BronzeMace")
+            {
+                unit.Health -= CurrentWeapon.Damage;
+                Console.WriteLine(CurrentWeapon.Damage);
+                if (new Random().Next(0, 101) <= 20)
+                {
+                    unit.IsStunned = true;
+                    Console.WriteLine($"{unit.Type} stun!");
+                }
+                if(new Random().Next(0, 101) < 60)
+                {
+                    unit.IsBleending = true;
+                    Console.WriteLine($"{unit.Type} is bleeding");
+                }
+                return;
+            }
             unit.Health -= CurrentWeapon.Damage;
-            
+            return;
+
         }
 
         public override void Move()
