@@ -23,12 +23,7 @@ namespace CSharpBaseAlmet
             if (CurrentWeapon != null && CurrentWeapon.Durability > 0) 
             {
                 anyUnit.GetDamageAndEffect(CurrentWeapon.Hit());
-                    CurrentWeapon.Durability = CurrentWeapon.Durability - 10;
-                }
-                else
-                {
-                    CurrentWeapon.Durability = 0;
-                }
+                CurrentWeapon.Durability = CurrentWeapon.Durability - 10;
             }
             else
             {

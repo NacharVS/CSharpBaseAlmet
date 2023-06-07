@@ -2,6 +2,9 @@
 {
     class Unit
     {
+        public Action moving;
+        public delegate void HealthChangedDelegate(int health);
+        public event HealthChangedDelegate HealthChangedEvent;
         private int _health;
         public Unit(string type, int health, int speed)
         {
@@ -45,6 +48,7 @@
                         _health = value;
                     }
                 }
+                HealthChangedEvent?.Invoke(_health);
                 
             }
         }
@@ -56,29 +60,30 @@
 
         public virtual void Move()
         {
-            Console.WriteLine($"{Type} is moving to...");
+            moving.Invoke();
+            //Console.WriteLine($"{Type} is moving to...");
         }
 
         public void GetDamageAndEffect((int, bool, string) damageEffect)
         {
             if (damageEffect.Item3 == "BronzeMace")
             {
-                Health -= damageEffect.Item1;
                 Console.WriteLine(damageEffect.Item1);
+                Health -= damageEffect.Item1;
                 IsStunned = damageEffect.Item2;
                 return;
             }
             if (damageEffect.Item3 == "StoneAxe")
             {
-                Health -= damageEffect.Item1;
                 Console.WriteLine(damageEffect.Item1);
+                Health -= damageEffect.Item1;
                 IsBleeding = damageEffect.Item2;
                 return;
             }
             if (damageEffect.Item3 == "IronSword")
             {
-                Health -= damageEffect.Item1;
                 Console.WriteLine(damageEffect.Item1);
+                Health -= damageEffect.Item1;
                 return;
             }
 
