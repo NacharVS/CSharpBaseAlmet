@@ -10,6 +10,9 @@
             Health = health;     
             Speed = speed;
             Level = 1;
+            IsStunned = false;
+            IsBleeding = false; 
+
         }
 
         public int Level { get; set; }
@@ -17,6 +20,8 @@
 
         public int MaxHealth { get; set; }
         public int Speed { get; set; }
+        public bool IsStunned { get; set; }
+        public bool IsBleeding { get; set; }
         public int Health 
         {   get
             {

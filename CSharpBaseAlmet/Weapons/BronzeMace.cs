@@ -11,6 +11,7 @@ namespace CSharpBaseAlmet.Weapons
         public BronzeMace() : base(12, 40)
         {
         }
+
     }
 }
 
