@@ -22,7 +22,7 @@ namespace CSharpBaseAlmet
         {
             if (IsStunned)
             {
-                Console.WriteLine("Can not attack. Stun.");
+                Console.WriteLine($"{unit.Type} can not attack. Stun.");
             }
             else
             {
@@ -34,6 +34,12 @@ namespace CSharpBaseAlmet
                     {
                         unit.IsStunned = true;
                         Console.WriteLine($"{unit.Type} stun!");
+                    }
+                    if (new Random().Next(0, 101) <= 20)
+                    {
+                        unit.OpenWounds = true;
+                        unit.Health -= 2;
+                        Console.WriteLine($"{unit.Type} open wounds! Health - {unit.Health}");
                     }
                 }
                 else

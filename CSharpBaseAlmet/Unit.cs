@@ -18,7 +18,9 @@
         public int MaxHealth { get; set; }
         public int Speed { get; set; }
 
-        public  bool IsStunned { get; set; }
+        public bool IsStunned { get; set; }
+        public bool OpenWounds { get; set; }
+
         public int Health 
         {   get
             {
