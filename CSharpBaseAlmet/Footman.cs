@@ -20,13 +20,15 @@ namespace CSharpBaseAlmet
 
         public override void InflictDamage(Unit anyUnit)
         {
-            if(CurrentWeapon != null)
+            if(CurrentWeapon != null && CurrentWeapon.Durability>0)
             {
                 anyUnit.GetDamageAndEffect(CurrentWeapon.Hit());
+                CurrentWeapon.Durability -= 10;
             }
             else
             {
                 base.InflictDamage(anyUnit);
+                CurrentWeapon.Durability -= 2;
             }
         }
 
