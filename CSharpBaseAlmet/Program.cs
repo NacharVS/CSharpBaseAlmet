@@ -13,12 +13,17 @@ void Method3()
 {
     Console.WriteLine("Move");
 }
+void Method4()
+{
+    Console.WriteLine("Durability");
+}
 
 Peasant peasant = new Peasant();
 Footman footman = new Footman();
 peasant.healthChangedEvent += Method1;
 peasant.healthChangedEvent += Method2;
 peasant.healthChangedEvent += Method3;
+peasant.durabilityChangedEvent += Method4;
 footman.InflictDamage(peasant);
 
 

@@ -4,7 +4,9 @@
     {
         public Action moving;
         public delegate void HealthChangedDelegate();
- 
+        public delegate void DurabilityChangedDelegate();
+
+
         private int _health;
         public Unit(string type, int health, int speed)
         {
@@ -47,6 +49,7 @@
                     }
                 }
                 healthChangedEvent?.Invoke();
+                durabilityChangedEvent?.Invoke();
             }
         }
 
@@ -80,5 +83,7 @@
         }
 
         public event HealthChangedDelegate healthChangedEvent;
+
+        public event DurabilityChangedDelegate durabilityChangedEvent;
     }
 }
