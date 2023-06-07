@@ -30,5 +30,10 @@ namespace CSharpBaseAlmet.Weapons
         {
             return (Damage, false, "BronzeMace");
         }
+
+        public void ShowDurability()
+        {
+            Console.WriteLine($"durability - {Durability}");
+        }
     }
 }
