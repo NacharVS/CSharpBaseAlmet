@@ -23,6 +23,7 @@ namespace CSharpBaseAlmet.Weapons
             {
                 return (Damage, false, "BronzeMace");
             }
+            
         }
 
     }

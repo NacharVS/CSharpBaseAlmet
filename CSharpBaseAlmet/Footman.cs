@@ -20,56 +20,65 @@ namespace CSharpBaseAlmet
 
         public override void InflictDamage(Unit anyUnit)
         {
-            if (CurrentWeapon != null)
+            if (CurrentWeapon != null && CurrentWeapon.Durability > 0) 
             {
                 anyUnit.GetDamageAndEffect(CurrentWeapon.Hit());
+                
+                if (CurrentWeapon.Durability > 0)
+                {
+                    CurrentWeapon.Durability = CurrentWeapon.Durability - 10;
+                }
+                else
+                {
+                    CurrentWeapon.Durability = 0;
+                }
             }
             else
             {
                 base.InflictDamage(anyUnit);
             }
         }
-        public void WeaponAttack(Unit unit)
-        {
-            if (IsStunned)
-            {
-                Console.WriteLine($"Can't attacked");
-            }
-            else
-            {
+        //public void WeaponAttack(Unit unit)
+        //{
+        //    if (IsStunned)
+        //    {
+        //        Console.WriteLine($"Can't attacked");
+        //    }
+        //    else
+        //    {
 
-                if (CurrentWeapon.GetType().Name == "BronzeMace")
-                {
-                    unit.Health -= CurrentWeapon.Hit().Item1;
-                    Console.WriteLine(CurrentWeapon.Damage);
-                    unit.IsStunned = CurrentWeapon.Hit().Item2;
-                }
-                else if (CurrentWeapon.GetType().Name == "StoneAxe")
-                {
-                    if (new Random().Next(0, 101) <= 20)
-                    {
-                        unit.IsBleeding = true;
-                        Console.WriteLine($"{unit.Type} has bleending!");
-                    }
-                    if (IsBleeding)
-                    {
-                        unit.Health -= CurrentWeapon.Damage + 2;
-                        Console.WriteLine(CurrentWeapon.Damage + 2);
-                    }
-                    else
-                    {
-                        unit.Health -= CurrentWeapon.Damage;
-                        Console.WriteLine(CurrentWeapon.Damage);
-                    }
+        //        if (CurrentWeapon.GetType().Name == "BronzeMace")
+        //        {
+        //            unit.Health -= CurrentWeapon.Hit().Item1;
+        //            Console.WriteLine(CurrentWeapon.Damage);
+        //            unit.IsStunned = CurrentWeapon.Hit().Item2;
+        //        }
+        //        else if (CurrentWeapon.GetType().Name == "StoneAxe")
+        //        {
+        //            if (new Random().Next(0, 101) <= 20)
+        //            {
+        //                unit.IsBleeding = true;
+        //                Console.WriteLine($"{unit.Type} has bleending!");
+        //            }
+        //            if (IsBleeding)
+        //            {
+        //                unit.Health -= CurrentWeapon.Damage + 2;
+        //                Console.WriteLine(CurrentWeapon.Damage + 2);
+        //            }
+        //            else
+        //            {
+        //                unit.Health -= CurrentWeapon.Damage;
+        //                Console.WriteLine(CurrentWeapon.Damage);
+        //            }
 
-                }
-                else
-                {
-                    unit.Health -= CurrentWeapon.Damage;
-                }
+        //        }
+        //        else
+        //        {
+        //            unit.Health -= CurrentWeapon.Damage;
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         public override void Move()
         {

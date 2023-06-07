@@ -17,7 +17,7 @@ namespace CSharpBaseAlmet.Weapons
             if (new Random().Next(1, 101) <= 30)
             {
                 Console.WriteLine($"Bleeding!");
-                return (Damage, true, "StoneAxe");
+                return (Damage+2, true, "StoneAxe");
 
             }
             else
