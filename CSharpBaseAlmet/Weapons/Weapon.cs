@@ -9,6 +9,7 @@ namespace CSharpBaseAlmet.Weapons
     internal class Weapon
     {
         private int _damage;
+        private int _durability;
         public Weapon(int damage, int durability)
         {
             Damage = damage;
@@ -16,7 +17,20 @@ namespace CSharpBaseAlmet.Weapons
         }
 
        
-        public int Durability { get; set; }
+        public int Durability 
+        { 
+            get { return _durability; }
+            set 
+            { 
+                if(value <= 0)
+                {
+                    _durability = 0;
+                    Console.WriteLine("Weapon damaged");
+                }
+                else
+                    _durability = value;
+            }
+        }
         public virtual int Damage 
         {
             get 
