@@ -20,6 +20,7 @@ namespace CSharpBaseAlmet
 
         public void WeaponAttack(Unit unit)
         {
+
             if (IsOpenWounds)
             {
                 if (unit.Health - 2 > 0)
@@ -32,20 +33,6 @@ namespace CSharpBaseAlmet
                     Console.WriteLine($"{unit.Type} is defeated");
                 }
 
-            }
-            else 
-            {
-                unit.Health -= CurrentWeapon.Damage;
-                Console.WriteLine(CurrentWeapon.Damage);
-                if (new Random().Next(0, 101) <= 10)
-                {
-                    unit.IsOpenWounds = true;
-                    Console.WriteLine($"{unit.Type} received open wounds.");
-                }
-                else
-                {
-                    unit.Health -= CurrentWeapon.Damage;
-                }
             }
 
             if (IsStunned)
@@ -62,6 +49,11 @@ namespace CSharpBaseAlmet
                     {
                         unit.IsStunned = true;
                         Console.WriteLine($"{unit.Type} stun!");
+                    }
+                    if (new Random().Next(0, 101) <= 10)
+                    {
+                        unit.IsOpenWounds = true;
+                        Console.WriteLine($"{unit.Type} received open wounds.");
                     }
                 }
                 else
