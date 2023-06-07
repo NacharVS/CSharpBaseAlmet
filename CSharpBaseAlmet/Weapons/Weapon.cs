@@ -25,5 +25,10 @@ namespace CSharpBaseAlmet.Weapons
             }
             set => _damage = value; 
         }
+
+        public virtual (int, bool, string) Hit()
+        {  
+                return (Damage, false, String.Empty);
+        }
     }
 }

@@ -11,5 +11,20 @@ namespace CSharpBaseAlmet.Weapons
         public StoneAxe() : base(7, 30)
         {
         }
+
+        public override (int, bool, string) Hit()
+        {
+            if (new Random().Next(1, 101) < 31)
+            {
+                Console.WriteLine("OpenWound!");
+                return (Damage, true, "StoneAxe");
+            }
+            else
+            {
+                return (Damage, true, "StoneAxe");
+            }
+        }
     }
+
+    
 }
