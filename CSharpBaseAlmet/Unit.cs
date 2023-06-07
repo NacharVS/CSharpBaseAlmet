@@ -14,7 +14,8 @@
 
         public int Level { get; set; }
         public string Type { get; set; }
-
+        public bool IsStunned { get; set; }
+        public bool IsOpenWounds { get; set; }
         public int MaxHealth { get; set; }
         public int Speed { get; set; }
         public int Health 
