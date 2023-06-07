@@ -9,14 +9,36 @@ namespace CSharpBaseAlmet.Weapons
     internal class Weapon
     {
         private int _damage;
+        private int _durability;
+        public delegate void DurabilityChangedDelegate(int durability);
+
         public Weapon(int damage, int durability)
         {
             Damage = damage;
             Durability = durability;
         }
 
-       
-        public int Durability { get; set; }
+        public int Durability
+        {
+            get
+            {
+                return _durability;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    _durability = 0;
+                    Console.WriteLine("Weapon damaged");
+                }
+                else
+                {
+                    _durability = value;
+                }
+                durabilityityChangedEvent?.Invoke(_durability);
+            }
+        }
+
         public virtual int Damage 
         {
             get 
@@ -35,5 +57,7 @@ namespace CSharpBaseAlmet.Weapons
         {
             Console.WriteLine($"Durability-{Durability}");
         }
+
+        public event DurabilityChangedDelegate durabilityityChangedEvent;
     }
 }

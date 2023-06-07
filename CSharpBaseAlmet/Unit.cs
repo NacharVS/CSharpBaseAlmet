@@ -1,8 +1,11 @@
-﻿namespace CSharpBaseAlmet
+﻿using static CSharpBaseAlmet.Weapons.Weapon;
+
+namespace CSharpBaseAlmet
 {
     class Unit
     {
         private int _health;
+        public delegate void HealthChangedDelegate(int health);
         public Unit(string type, int health, int speed)
         {
             Type = type;
@@ -41,7 +44,8 @@
                         _health = value;
                     }
                 }
-                
+
+                healthChangedDelegate?.Invoke(_health);
             }
         }
 
@@ -87,6 +91,9 @@
             }
 
         }
+        public event HealthChangedDelegate healthChangedDelegate;
+
+
 
     }
 }

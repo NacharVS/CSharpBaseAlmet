@@ -13,14 +13,6 @@ namespace CSharpBaseAlmet.Weapons
         }
         public override (int, bool, string, int) Hit()
         {
-            if (Durability > 0)
-            {
-                Durability -= 10;
-            }
-            else
-            {       
-                Damage = 2;
-            }
 
             if (new Random().Next(1, 101) < 20)
             {

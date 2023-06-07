@@ -16,15 +16,6 @@ namespace CSharpBaseAlmet.Weapons
         {
             if (new Random().Next(1, 101) < 31)
             {
-                if (Durability > 0)
-                {
-                    Durability -= 10;
-                }
-                else
-                {
-                    Damage = 2;
-                }
-
                 Console.WriteLine("Stun!");
                 return (Damage, true, "StoneAxe", Durability);
             }
