@@ -55,6 +55,38 @@
             Console.WriteLine($"{Type} is moving to...");
         }
 
+        public void GetDamageAndEffect((int, bool, string, int) damageEffect) 
+        {
+
+            if (damageEffect.Item4 <= 0)
+            {
+                Console.WriteLine($"{damageEffect.Item3} break. Damage - 2");
+            }
+            else 
+            {
+                Console.WriteLine($"{damageEffect.Item3} - {damageEffect.Item4}");
+            }
+
+            if (damageEffect.Item3 == "BronzeMace") 
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsStunned = damageEffect.Item2;
+            }
+            if (damageEffect.Item3 == "StoneAxe") 
+            {
+                Health -= damageEffect.Item1;
+                Console.WriteLine(damageEffect.Item1);
+                IsOpenWounds = damageEffect.Item2;
+                if (IsOpenWounds) 
+                {
+                    Health -= 2;
+                    Console.WriteLine("Open wounds!");
+                }
+                return;
+            }
+
+        }
 
     }
 }

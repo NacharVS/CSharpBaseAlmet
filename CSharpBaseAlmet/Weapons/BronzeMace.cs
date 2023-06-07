@@ -11,16 +11,27 @@ namespace CSharpBaseAlmet.Weapons
         public BronzeMace() : base(12, 40)
         {
         }
-        public override (int, bool) Hit()
+        public override (int, bool, string, int) Hit()
         {
+            if (Durability > 0)
+            {
+                Durability -= 10;
+            }
+            else
+            {       
+                Damage = 2;
+            }
+
             if (new Random().Next(1, 101) < 20)
             {
-                return (Damage, true);
+                Console.WriteLine("Stun!");
+                return (Damage, true, "BronzeMace", Durability);
             }
-            else 
+            else
             {
-                return (Damage, false);
+                return (Damage, false, "BronzeMace", Durability);
             }
         }
+
     }
 }

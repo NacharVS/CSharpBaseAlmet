@@ -17,14 +17,12 @@ namespace CSharpBaseAlmet
         public int Damage { get; set; }
         public int Defense { get; set; }
 
-        public void InflictDamage(Unit anyUnit)
+        public virtual void InflictDamage(Unit anyUnit)
         {
             anyUnit.Health -= Damage;
             Console.WriteLine($"{Type} inflicted {Damage} to enemy " +
                 $"{anyUnit.Type}. Enemy health - {anyUnit.Health}");
         }
-
-
 
     }
 }
