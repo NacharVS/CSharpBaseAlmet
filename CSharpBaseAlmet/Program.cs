@@ -8,26 +8,26 @@
 
 //Console.WriteLine(b + d + c);
 
-Console.WriteLine("Start");
+//Console.WriteLine("Start");
 
-int a = int.Parse(Console.ReadLine());
-int b = int.Parse(Console.ReadLine());
-int c = int.Parse(Console.ReadLine());
+//int a = int.Parse(Console.ReadLine());
+//int b = int.Parse(Console.ReadLine());
+//int c = int.Parse(Console.ReadLine());
 
-if (a > b && a > c && c < b)
-{
-    Console.WriteLine(a);
-} else
-{
-    if (b > c)
-    {
-        Console.WriteLine(b);
-    }
-    else
-    {
-        Console.WriteLine(c);
-    }
-} 
+//if (a > b && a > c && c < b)
+//{
+//    Console.WriteLine(a);
+//} else
+//{
+//    if (b > c)
+//    {
+//        Console.WriteLine(b);
+//    }
+//    else
+//    {
+//        Console.WriteLine(c);
+//    }
+//} 
 
 
 
