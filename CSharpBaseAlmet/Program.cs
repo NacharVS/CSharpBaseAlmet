@@ -86,11 +86,11 @@ void Method3()
 //weapon2.Shoot();
 //weapon2.ShowInfo();
 
-IBarrack building1 = new Barrack();
+//IBarrack building1 = new Barrack();
 
-building1.ShowInfo();
+//building1.ShowInfo();
 
-
+NumSum.Proc();
 
 
 
